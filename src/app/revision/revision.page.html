@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>revision</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Consulta</ion-card-subtitle>
+      <ion-card-title>{{consulta.titulo}}</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      {{consulta.consulta}}
+    </ion-card-content>
+  </ion-card>
+
+  <ion-item>
+    <ion-icon name="pin" slot="start"></ion-icon>
+    <ion-label>Respuestas</ion-label>
+    <ion-button fill="outline" slot="end" (click)="presentAlertPrompt()">Responder</ion-button>
+  </ion-item>
+  <ion-card *ngIf="tamano===0">
+    <ion-item>
+      <ion-label class="ion-text-wrap">
+        <ion-text>
+          <p>No existen respuestas para esta consulta porfavor vuelve mas tarde</p>
+        </ion-text>
+      </ion-label>
+    </ion-item>
+  </ion-card>
+  <ion-card>
+    <ion-item *ngFor="let respuesta of respuestas">
+      <ion-avatar slot="start">
+        <img src="https://w7.pngwing.com/pngs/831/88/png-transparent-user-profile-computer-icons-user-interface-mystique-miscellaneous-user-interface-design-smile.png" />
+      </ion-avatar>
+      <ion-label class="ion-text-wrap">
+        <ion-text color="primary">
+          <h3>Nombre</h3>
+        </ion-text>
+        <p>{{respuesta.titulo}}</p>
+        <ion-text>
+          <p>{{respuesta.respuesta}}</p>
+        </ion-text>
+      </ion-label>
+    </ion-item>
+  </ion-card>
+</ion-content>

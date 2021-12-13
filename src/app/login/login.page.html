@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Iniciar Sesion</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <form>
+        <ion-item>
+          <ion-input type="email" required placeholder="Correo" #email></ion-input>
+          <ion-icon name="person-outline" slot="start"></ion-icon>
+        </ion-item>
+        <ion-item>
+          <ion-input type="password" required placeholder="Contraseña" #password></ion-input>
+          <ion-icon name="bag-outline" slot="start"></ion-icon>
+        </ion-item>
+        <ion-item *ngIf="inicio==='Fallido'">
+          <ion-label class="ion-text-wrap">
+            <ion-text >
+              <ion-label color="danger">
+                Datos incorrectos ingresados
+              </ion-label>
+            </ion-text>
+          </ion-label>
+        </ion-item>
+        <ion-button color="success" type="submit" (click)="iniciarSesion(email.value,password.value)">Acceder</ion-button>
+        <ion-text>
+          <h5>or</h5>
+        </ion-text>
+        <ion-button color="medium">Crear Cuenta</ion-button>
+        <ion-label>
+          <h3>
+            ¿Olvido su contraseña?
+          </h3>
+        </ion-label>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

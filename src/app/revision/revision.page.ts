@@ -1,19 +1,30 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ConsultasService } from '../consulta/consultas.service';
+import { RespuestasService } from './respuestas.service';
 import { AlertController } from '@ionic/angular';
-import { NavController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'app-revision',
+  templateUrl: './revision.page.html',
+  styleUrls: ['./revision.page.scss'],
 })
-export class HomePage implements OnInit{
-  constructor(private consultasService: ConsultasService,
-    public alertController: AlertController,
-    public navCtrl: NavController) { }
+export class RevisionPage implements OnInit {
+  id = ''
+  consulta = {}
+  respuestas = []
+  tamano = 0
+
+  constructor(private activatedRoute:ActivatedRoute, 
+    private consultasService:ConsultasService, 
+    private respuestasService:RespuestasService,
+    public alertController: AlertController) { }
 
   ngOnInit() {
+    this.id = this.activatedRoute.snapshot.paramMap.get('id');
+    this.consulta = this.consultasService.getConsulta(this.id)
+    this.respuestas = this.respuestasService.getRespuesta(this.id)
+    this.tamano = this.respuestas.length
   }
 
   async presentAlertPrompt() {
@@ -42,10 +53,10 @@ export class HomePage implements OnInit{
           },
         },
         {
-          text: 'Crear',
+          text: 'Responder',
           handler: () => {
-            this.consultasService.addConsulta('Ingreso prueba 1','Ingreso consulta prueba 1')
-            this.navCtrl.navigateForward('/revision/'+this.consultasService.getConsultas().length)
+            this.respuestasService.addRespuesta('Ingreso prueba 1','Ingreso respuesta prueba 1',this.id)
+            this.respuestas = this.respuestasService.getRespuesta(this.id)
             console.log('Confirm Ok');
           },
         },
@@ -54,4 +65,5 @@ export class HomePage implements OnInit{
 
     await alert.present();
   }
+
 }
