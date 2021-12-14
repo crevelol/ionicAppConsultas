@@ -6,6 +6,10 @@ const routes: Routes = [
   {
     path: '',
     component: HomePage
+  },
+  {
+    path: 'mis',
+    loadChildren: () => import('./mis/mis.module').then( m => m.MisPageModule)
   }
 ];
 

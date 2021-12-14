@@ -30,6 +30,14 @@ export class UsuariosService {
     }
   }
 
+  getUsuarioId(userId: String){
+    return {
+      ...this.usuarios.find(usuario => {
+        return usuario.id_usuario === userId
+      })
+    }
+  }
+
   /*addRespuesta(title: string, res: string, id: string){
     this.respuestas.push({
       id_respuesta: (this.respuestas.length + 1) + "",

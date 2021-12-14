@@ -15,7 +15,6 @@ export class ConsultaPage implements OnInit {
 
   ngOnInit() {
     this.texto = this.activatedRoute.snapshot.paramMap.get('texto');
-    this.consultas = this.consultasService.getConsultas()
+    this.consultas = this.consultasService.getConsultasBusqueda(this.texto)
   }
-
 }

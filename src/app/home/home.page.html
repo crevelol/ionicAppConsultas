@@ -1,16 +1,31 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Easysolution
+      AskMe
     </ion-title>
+    <ion-buttons slot="primary">
+      <ion-button (click)="presentAlertPrompt()">
+        <ion-icon size="large" name="create"></ion-icon>
+      </ion-button>
+      <ion-button routerLink='/home/mis'>
+        <ion-icon size="large" name="chatbubble"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Easysolution</ion-title>
+      <ion-title size="large">AskMe</ion-title>
+      <ion-buttons slot="primary">
+        <ion-button (click)="presentAlertPrompt()">
+          <ion-icon size="large" name="add"></ion-icon>
+        </ion-button>
+      </ion-buttons>
     </ion-toolbar>
+    
+    
   </ion-header>
   <!--<form [formGroup]="ionicForm" (ngSubmit)="onSubmit()" >
     <ion-searchbar inputmode="text" formControlName="buscador"></ion-searchbar>
@@ -21,18 +36,16 @@
       </ion-item>
     </ion-list>
   </form>-->
-  <ion-searchbar inputmode="text" [(ngModel)]="texto"></ion-searchbar>
-    <ion-button color="success" [routerLink]="['/consulta',texto]">Buscar</ion-button>
+  <ion-img src="assets/lg1.png"></ion-img>
+  <ion-searchbar color="medium" inputmode="text" [(ngModel)]="texto"></ion-searchbar>
   <ion-item lines="none">
-    
-    
+    <ion-button color="success" [routerLink]="['/consulta',texto]">Consultar</ion-button>
   </ion-item>
-  <ion-button color="warning" (click)="presentAlertPrompt()">Cree una pregunta</ion-button>
-  <ion-item lines="none">
-    
-  </ion-item>
-  
-
-  <ion-button color="danger">Salir</ion-button>
   
 </ion-content>
+
+<ion-footer class="ion-no-border">
+    <ion-item lines="none">
+      <ion-button color="danger">Cerrar Sesion</ion-button>
+    </ion-item>
+</ion-footer>

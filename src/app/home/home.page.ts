@@ -19,7 +19,7 @@ export class HomePage implements OnInit{
   async presentAlertPrompt() {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
-      header: 'Escriba su respuesta',
+      header: 'Cree su consulta',
       inputs: [
         {
           name: 'titulo',
@@ -27,9 +27,9 @@ export class HomePage implements OnInit{
           placeholder: 'Titulo',
         },
         {
-          name: 'respuesta',
+          name: 'consulta',
           type: 'textarea',
-          placeholder: 'Respuesta',
+          placeholder: 'Consulta',
         }
       ],
       buttons: [
@@ -43,8 +43,8 @@ export class HomePage implements OnInit{
         },
         {
           text: 'Crear',
-          handler: () => {
-            this.consultasService.addConsulta('Ingreso prueba 1','Ingreso consulta prueba 1')
+          handler: (data) => {
+            this.consultasService.addConsulta(data.titulo,data.consulta)
             this.navCtrl.navigateForward('/revision/'+this.consultasService.getConsultas().length)
             console.log('Confirm Ok');
           },

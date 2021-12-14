@@ -25,3 +25,21 @@
 #container a {
   text-decoration: none;
 }
+
+ion-content{
+  position: absolute;
+  top: 10%;
+  text-align: center;
+}
+
+ion-img{
+  padding: 3rem 1rem;
+}
+
+ion-item ion-button{
+  margin: auto;
+}
+
+ion-header ion-toolbar{
+  color: white;
+}

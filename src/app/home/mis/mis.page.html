@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>AskMe</ion-title>
+    <ion-title>mis</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -8,7 +8,7 @@
   <ion-list>
     <ion-item>
       <ion-text>
-        <h2>Consultas encontradas</h2>
+        <h2>Tus consultas</h2>
       </ion-text>
     </ion-item>
     <ion-item *ngFor="let consulta of consultas" [routerLink]="['/revision',consulta.id_consulta]">
