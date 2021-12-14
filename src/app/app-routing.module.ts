@@ -12,15 +12,15 @@ const routes: Routes = [
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
   {
-    path: 'home',
+    path: 'home/:user',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
   {
-    path: 'consulta/:texto',
+    path: 'consulta/:user/:texto',
     loadChildren: () => import('./consulta/consulta.module').then( m => m.ConsultaPageModule)
   },
   {
-    path: 'revision/:id',
+    path: 'revision/:user/:id',
     loadChildren: () => import('./revision/revision.module').then( m => m.RevisionPageModule)
   }
 ];

@@ -3,7 +3,17 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    projectId: 'ionic-data-85e9f',
+    appId: '1:954916908702:web:6006ced5f6ef0df75fd58f',
+    storageBucket: 'ionic-data-85e9f.appspot.com',
+    locationId: 'asia-east2',
+    apiKey: 'AIzaSyBoCgSy4UyzHc_69TPwvulH3u0nOMXVGkY',
+    authDomain: 'ionic-data-85e9f.firebaseapp.com',
+    messagingSenderId: '954916908702',
+    measurementId: 'G-J1K9G5J2L5',
+  }
 };
 
 /*
@@ -14,3 +24,11 @@ export const environment = {
  * on performance if an error is thrown.
  */
 // import 'zone.js/dist/zone-error';  // Included with Angular CLI.
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional

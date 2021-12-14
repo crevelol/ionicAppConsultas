@@ -7,7 +7,7 @@
       <ion-button (click)="presentAlertPrompt()">
         <ion-icon size="large" name="create"></ion-icon>
       </ion-button>
-      <ion-button routerLink='/home/mis'>
+      <ion-button [routerLink]="['/home',user,'mis']">
         <ion-icon size="large" name="chatbubble"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -39,13 +39,13 @@
   <ion-img src="assets/lg1.png"></ion-img>
   <ion-searchbar color="medium" inputmode="text" [(ngModel)]="texto"></ion-searchbar>
   <ion-item lines="none">
-    <ion-button color="success" [routerLink]="['/consulta',texto]">Consultar</ion-button>
+    <ion-button color="success" [routerLink]="['/consulta',user,texto]">Consultar</ion-button>
   </ion-item>
   
 </ion-content>
 
 <ion-footer class="ion-no-border">
     <ion-item lines="none">
-      <ion-button color="danger">Cerrar Sesion</ion-button>
+      <ion-button color="danger" routerLink='/login'>Cerrar Sesion</ion-button>
     </ion-item>
 </ion-footer>

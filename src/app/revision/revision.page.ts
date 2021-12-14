@@ -16,6 +16,7 @@ export class RevisionPage implements OnInit {
   respuestas = []
   tamano = 0
   nombre = 'Usuario'
+  user = ''
 
   constructor(private activatedRoute:ActivatedRoute, 
     private consultasService:ConsultasService, 
@@ -24,6 +25,7 @@ export class RevisionPage implements OnInit {
     public alertController: AlertController) { }
 
   ngOnInit() {
+    this.user = this.activatedRoute.snapshot.paramMap.get('user');
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
     const con = this.consultasService.getConsulta(this.id)
     this.consulta = con
@@ -74,7 +76,7 @@ export class RevisionPage implements OnInit {
         {
           text: 'Responder',
           handler: (data) => {
-            this.respuestasService.addRespuesta(data.titulo,data.respuesta,this.id)
+            this.respuestasService.addRespuesta(data.titulo,data.respuesta,this.id, this.user)
             this.respuestas = this.respuestasService.getRespuestas(this.id)
             this.tamano = this.respuestas.length
             console.log('Confirm Ok');
@@ -109,7 +111,7 @@ export class RevisionPage implements OnInit {
         {
           text: 'Responder',
           handler: (data) => {
-            this.respuestasService.addComentario(data.comentario,id)
+            this.respuestasService.addComentario(data.comentario,id,this.user)
             this.comentariosId(id)
             console.log('Confirm Ok');
           },

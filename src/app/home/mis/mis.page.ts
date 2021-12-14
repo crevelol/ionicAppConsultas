@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ConsultasService } from '../../consulta/consultas.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-mis',
@@ -8,12 +9,13 @@ import { ConsultasService } from '../../consulta/consultas.service';
 })
 export class MisPage implements OnInit {
   consultas = []
-  id = '1'
+  user = ''
 
-  constructor(private consultasService: ConsultasService) { }
+  constructor(private consultasService: ConsultasService,private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.consultas = this.consultasService.getConsultaMis(this.id)
+    this.user = this.activatedRoute.snapshot.paramMap.get('user');
+    this.consultas = this.consultasService.getConsultaMis(this.user)
   }
 
 }

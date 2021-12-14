@@ -68,13 +68,13 @@ export class ConsultasService {
     })
   }
 
-  addConsulta(title: string, cons: string){
+  addConsulta(title: string, cons: string, user: string){
     this.consultas.push({
       id_consulta: (this.consultas.length + 1) + "",
       titulo: title,
       consulta: cons,
       cerrado: false,
-      id_usuario: '1'
+      id_usuario: user
     });
   }
 }

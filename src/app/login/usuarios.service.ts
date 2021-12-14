@@ -22,6 +22,10 @@ export class UsuariosService {
 
   constructor() { }
 
+  getUsuarios(){
+    return [...this.usuarios]
+  }
+
   getUsuario(email: String, password: String){
     return {
       ...this.usuarios.find(usuario => {
@@ -36,6 +40,15 @@ export class UsuariosService {
         return usuario.id_usuario === userId
       })
     }
+  }
+
+  addUsuario(nom: string, email: string, pass: string){
+    this.usuarios.push({
+      id_usuario: (this.usuarios.length + 1) + "",
+      nombre: nom,
+      correo: email,
+      contrasena: pass
+    });
   }
 
   /*addRespuesta(title: string, res: string, id: string){

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ConsultasService } from '../consulta/consultas.service';
 import { AlertController } from '@ionic/angular';
 import { NavController } from '@ionic/angular';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -9,11 +10,15 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit{
+  user = ''
+
   constructor(private consultasService: ConsultasService,
     public alertController: AlertController,
-    public navCtrl: NavController) { }
+    public navCtrl: NavController,
+    private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
+    this.user = this.activatedRoute.snapshot.paramMap.get('user');
   }
 
   async presentAlertPrompt() {
@@ -44,8 +49,8 @@ export class HomePage implements OnInit{
         {
           text: 'Crear',
           handler: (data) => {
-            this.consultasService.addConsulta(data.titulo,data.consulta)
-            this.navCtrl.navigateForward('/revision/'+this.consultasService.getConsultas().length)
+            this.consultasService.addConsulta(data.titulo,data.consulta,this.user)
+            this.navCtrl.navigateForward('/revision/'+this.user+'/'+this.consultasService.getConsultas().length)
             console.log('Confirm Ok');
           },
         },

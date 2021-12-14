@@ -70,21 +70,21 @@ export class RespuestasService {
     ]
   }
 
-  addRespuesta(title: string, res: string, id: string){
+  addRespuesta(title: string, res: string, id: string, user: string){
     this.respuestas.push({
       id_respuesta: (this.respuestas.length + 1) + "",
       titulo: title,
       respuesta: res,
-      id_usuario: '1',
+      id_usuario: user,
       id_consulta: id
     });
   }
 
-  addComentario(coment: string, id: string){
+  addComentario(coment: string, id: string, user: string){
     this.comentarios.push({
       id_comentario: (this.comentarios.length + 1) + "",
       comentario: coment,
-      id_usuario: '1',
+      id_usuario: user,
       id_consulta: id
     });
   }

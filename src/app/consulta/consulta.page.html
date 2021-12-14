@@ -1,5 +1,8 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
     <ion-title>AskMe</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -11,7 +14,7 @@
         <h2>Consultas encontradas</h2>
       </ion-text>
     </ion-item>
-    <ion-item *ngFor="let consulta of consultas" [routerLink]="['/revision',consulta.id_consulta]">
+    <ion-item *ngFor="let consulta of consultas" [routerLink]="['/revision',user,consulta.id_consulta]">
       <ion-label>
         {{consulta.titulo}}
       </ion-label>

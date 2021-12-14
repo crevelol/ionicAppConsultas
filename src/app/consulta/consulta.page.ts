@@ -10,10 +10,12 @@ import { ConsultasService } from './consultas.service';
 export class ConsultaPage implements OnInit {
   consultas = []
   texto = "";
+  user = '';
 
   constructor(private activatedRoute: ActivatedRoute, private consultasService: ConsultasService) { }
 
   ngOnInit() {
+    this.user = this.activatedRoute.snapshot.paramMap.get('user');
     this.texto = this.activatedRoute.snapshot.paramMap.get('texto');
     this.consultas = this.consultasService.getConsultasBusqueda(this.texto)
   }

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "ionic-data-85e9f": {
+      "hosting": {
+        "app": [
+          "ionic-data-85e9f"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "ionic-data-85e9f"
+  }
+}
